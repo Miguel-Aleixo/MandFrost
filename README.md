@@ -97,5 +97,25 @@ yarn dev
 ├── .env.local        # Variáveis de ambiente (não comitar)
 ├── package.json      # Dependências e scripts do projeto
 
+⚙️ Variáveis de ambiente
+
+Crie um arquivo .env.local na raiz do projeto com as seguintes variáveis:
+
+# FRONTEND
+NEXT_PUBLIC_API_URL=http://localhost:8080/api
+
+# BACKEND / BANCO DE DADOS
+PORT=5000
+DB_NAME=<nome_do_seu_banco>
+DB_USER=<usuario_do_banco>
+DB_PASSWORD=<senha_do_banco>
+DB_HOST=<host_do_banco>
+JWT_SECRET=<sua_chave_secreta_jwt>
+
+# CLOUDINARY
+CLOUDINARY_CLOUD_NAME=<nome_da_nuvem>
+CLOUDINARY_API_KEY=<sua_api_key>
+CLOUDINARY_API_SECRET=<sua_api_secret>
+
 📄 Licença
 Este projeto está licenciado sob a MIT License.
