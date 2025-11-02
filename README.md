@@ -101,11 +101,11 @@ yarn dev
 
 Crie um arquivo .env.local na raiz do projeto com as seguintes variáveis:
 
-FRONTEND
+# FRONTEND
 
 NEXT_PUBLIC_API_URL=http://localhost:8080/api
 
-BACKEND / BANCO DE DADOS
+# BACKEND / BANCO DE DADOS
 
 PORT=5000
 
@@ -119,7 +119,7 @@ DB_HOST=<host_do_banco>
 
 JWT_SECRET=<sua_chave_secreta_jwt>
 
-CLOUDINARY
+# CLOUDINARY
 
 CLOUDINARY_CLOUD_NAME=<nome_da_nuvem>
 
