@@ -79,9 +79,6 @@ ou
 
 yarn dev
 
-
-Acesse a aplicação em http://localhost:3000
-
 🗂️ Estrutura do projeto
 
 /
@@ -99,18 +96,6 @@ Acesse a aplicação em http://localhost:3000
 │   └── utils/        # Funções auxiliares
 ├── .env.local        # Variáveis de ambiente (não comitar)
 ├── package.json      # Dependências e scripts do projeto
-
-
-⚙️ Variáveis de ambiente
-Crie arquivos .env.local no frontend e backend com as seguintes variáveis:
-
-# Backend
-PORT=8080
-DB_URL=<URL_DO_SEU_BANCO_DE_DADOS>
-
-# Frontend
-NEXT_PUBLIC_API_URL=http://localhost:8080/api
-
 
 📄 Licença
 Este projeto está licenciado sob a MIT License.
