@@ -2,8 +2,8 @@
 Sistema de atendimento para sorveterias, desenvolvido com Next.js, TypeScript (ES6+) e Express.js.
 
 📦 O que é
-O MandFrost é uma aplicação web que permite gerenciar pedidos de sorvetes, cadastrar sabores, tamanhos e adicionais, e acompanhar o status de cada pedido em tempo real.
-O sistema conta com um painel administrativo completo para organizar pedidos, controlar estoque e oferecer uma experiência prática, rápida e intuitiva para clientes e funcionários.
+O MandFrost é uma aplicação web criada para facilitar o atendimento em sorveterias. Ele permite registrar pedidos de forma rápida, selecionar sabores, tamanhos e adicionais, e acompanhar o andamento do pedido em tempo real.
+Possui um painel intuitivo que ajuda o atendente a organizar o fluxo de atendimento e manter o serviço ágil, claro e eficiente tanto no balcão quanto na produção.
 
 🚀 Tecnologias utilizadas
 Next.js: Framework React para construção de interfaces com renderização no servidor (SSR) e geração de sites estáticos (SSG).
