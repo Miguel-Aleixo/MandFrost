@@ -10,10 +10,10 @@ const upload = multer({ dest: 'uploads/'})
 router.get('/', checkRole(['ADMIN']), getUsers);
 
 // POST
-router.post('/', upload.single('imagem'),addUser);
+router.post('/', upload.single('imagem'), addUser);
 
 // POST ADMIN
-router.post('/admin', checkRole(['ADMIN']), upload.single('imagem'), addAdmin);
+router.post('/admin', upload.single('imagem'), addAdmin);
 
 // PUT
 router.put('/:id', checkRole(['ADMIN', 'USER']), upload.single('imagem'), updateUser);
