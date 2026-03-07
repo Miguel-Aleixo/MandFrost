@@ -46,6 +46,8 @@ const createUser = async (data, file) => {
         };
     };
 
+    console.log("ANTES DO BCRYPT");
+
     const hashedPassword = await bcrypt.hash(data.senha, 10);
 
     console.log("ANTES DO CREATE");
