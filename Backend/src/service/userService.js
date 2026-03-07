@@ -46,6 +46,8 @@ const createUser = async (data, file) => {
         };
     };
 
+    console.log(data);
+
     const hashedPassword = await bcrypt.hash(data.senha, 10)
     return await User.create({ ...data, role: 'USER', senha: hashedPassword, imagem_url: imagemUrl });
 };
