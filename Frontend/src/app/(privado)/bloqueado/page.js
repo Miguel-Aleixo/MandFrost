@@ -40,7 +40,7 @@ export default function Bloqueado() {
                     {/* CARD COM MOTIVO DE BLOQUEIO */}
                     <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
                         <h2 className="text-lg font-semibold text-red-800 mb-2">Motivo do bloqueio:</h2>
-                        <p className="text-red-700">{token.mensagemBloqueio || "Acesso não autorizado."}</p>
+                        <p className="text-red-700">{token?.mensagemBloqueio || "Acesso não autorizado."}</p>
                     </div>
 
                     {/* AÇÕES */}
