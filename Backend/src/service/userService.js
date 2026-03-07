@@ -10,13 +10,9 @@ const getAllUsers = async () => {
 
 const createUser = async (data, file) => {
 
-    console.log("ANTES DO fil");
-
     if (!data.nome || !data.email || !data.senha || !data.telefone || !data.RA) {
         throw new Error('Preencha corretamente os dados.');
     };
-
-    console.log("ANTES DO fil");
 
     const existingUser = await User.findOne({
         where: {
@@ -28,18 +24,11 @@ const createUser = async (data, file) => {
         }
     });
 
-    console.log("ANTES DO fil");
-
     if (existingUser) {
-        console.log("Existente 1");
         throw new Error('Email, RA ou telefone já cadastrados.');
     }
 
-    console.log("Existente 2");
-
     let imagemUrl = null;
-
-    console.log("ANTES DO fil");
 
     if (file) {
         try {
@@ -57,11 +46,7 @@ const createUser = async (data, file) => {
         };
     };
 
-    console.log("ANTES DO BCRYPT");
-
     const hashedPassword = await bcrypt.hash(data.senha, 10);
-
-    console.log("ANTES DO CREATE");
 
     const user = await User.create({
         nome: data.nome,
@@ -72,8 +57,6 @@ const createUser = async (data, file) => {
         role: 'USER',
         imagem_url: imagemUrl
     });
-
-    console.log("USUARIO CRIADO", user.id);
 
     return user;
 };
