@@ -13,7 +13,6 @@ const createUser = async (data, file) => {
     console.log(data);
 
     if (!data.nome || !data.email || !data.senha || !data.telefone || !data.RA) {
-        console.log('Preencha corretamente os dados.');
         throw new Error('Preencha corretamente os dados.');
     };
 
@@ -83,8 +82,23 @@ const createAdmin = async (data, file) => {
         };
     };
 
-    const hashedPassword = await bcrypt.hash(data.senha, 10)
-    return await User.create({ ...data, role: 'ADMIN', senha: hashedPassword, imagem_url: imagemUrl });
+    const hashedPassword = await bcrypt.hash(data.senha, 10);
+
+    console.log("ANTES DO CREATE");
+
+    const user = await User.create({
+        nome: data.nome,
+        email: data.email,
+        telefone: data.telefone,
+        RA: data.RA,
+        senha: hashedPassword,
+        role: 'USER',
+        imagem_url: imagemUrl
+    });
+
+    console.log("USUARIO CRIADO", user.id);
+
+    return user;
 };
 
 const editUser = async (data, file) => {
