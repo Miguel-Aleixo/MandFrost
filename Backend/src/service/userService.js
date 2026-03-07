@@ -10,13 +10,9 @@ const getAllUsers = async () => {
 
 const createUser = async (data, file) => {
 
-    console.log(data);
-
     if (!data.nome || !data.email || !data.senha || !data.telefone || !data.RA) {
         throw new Error('Preencha corretamente os dados.');
     };
-
-    console.log(data);
 
     const existingUser = await User.findOne({
         where: {
@@ -31,38 +27,6 @@ const createUser = async (data, file) => {
     if (existingUser) {
         throw new Error('Email, RA ou telefone já cadastrados.');
     }
-
-    let imagemUrl = null;
-
-    console.log(data);
-
-    if (file) {
-        try {
-            const result = await cloudinary.uploader.upload(file.path, {
-                folder: 'usuarios',
-                use_filename: true,
-                unique_filename: false
-            });
-            imagemUrl = result.secure_url;
-
-        } finally {
-            if (fs.existsSync(file.path)) {
-                fs.unlinkSync(file.path);
-            };
-        };
-    };
-
-    console.log(data);
-
-    const hashedPassword = await bcrypt.hash(data.senha, 10)
-    return await User.create({ ...data, role: 'USER', senha: hashedPassword, imagem_url: imagemUrl });
-};
-
-const createAdmin = async (data, file) => {
-
-    if (!data.nome || !data.email || !data.senha || !data.telefone || !data.RA) {
-        throw new Error('Preencha corretamente os dados.');
-    };
 
     let imagemUrl = null;
 
@@ -99,6 +63,34 @@ const createAdmin = async (data, file) => {
     console.log("USUARIO CRIADO", user.id);
 
     return user;
+};
+
+const createAdmin = async (data, file) => {
+
+    if (!data.nome || !data.email || !data.senha || !data.telefone || !data.RA) {
+        throw new Error('Preencha corretamente os dados.');
+    };
+
+    let imagemUrl = null;
+
+    if (file) {
+        try {
+            const result = await cloudinary.uploader.upload(file.path, {
+                folder: 'usuarios',
+                use_filename: true,
+                unique_filename: false
+            });
+            imagemUrl = result.secure_url;
+
+        } finally {
+            if (fs.existsSync(file.path)) {
+                fs.unlinkSync(file.path);
+            };
+        };
+    };
+
+    const hashedPassword = await bcrypt.hash(data.senha, 10)
+    return await User.create({ ...data, role: 'ADMIN', senha: hashedPassword, imagem_url: imagemUrl });
 };
 
 const editUser = async (data, file) => {
