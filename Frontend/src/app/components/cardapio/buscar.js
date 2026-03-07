@@ -9,7 +9,7 @@ export function Buscar({ value, setValue }) {
       <div className="flex items-center w-full max-w-4xl mx-auto">
         {/* Logo/Title */}
         <div className="mr-4 flex-shrink-0">
-          <h1 className="text-xl font-bold text-orange-500 hidden md:block">MandFrost</h1>
+          <h1 className="text-xl font-bold text-orange-500 hidden md:block">Sorveteria</h1>
         </div>
 
         {/* Barra de busca */}
