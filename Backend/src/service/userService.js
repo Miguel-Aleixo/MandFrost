@@ -31,8 +31,11 @@ const createUser = async (data, file) => {
     console.log("ANTES DO fil");
 
     if (existingUser) {
+        console.log("Existente");
         throw new Error('Email, RA ou telefone já cadastrados.');
     }
+
+    console.log("Existente");
 
     let imagemUrl = null;
 
