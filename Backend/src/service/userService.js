@@ -10,9 +10,13 @@ const getAllUsers = async () => {
 
 const createUser = async (data, file) => {
 
+    console.log("ANTES DO fil");
+
     if (!data.nome || !data.email || !data.senha || !data.telefone || !data.RA) {
         throw new Error('Preencha corretamente os dados.');
     };
+
+    console.log("ANTES DO fil");
 
     const existingUser = await User.findOne({
         where: {
@@ -23,6 +27,8 @@ const createUser = async (data, file) => {
             ]
         }
     });
+
+    console.log("ANTES DO fil");
 
     if (existingUser) {
         throw new Error('Email, RA ou telefone já cadastrados.');
