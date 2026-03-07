@@ -30,6 +30,8 @@ const createUser = async (data, file) => {
 
     let imagemUrl = null;
 
+    console.log("ANTES DO fil");
+
     if (file) {
         try {
             const result = await cloudinary.uploader.upload(file.path, {
