@@ -11,6 +11,7 @@ const getAllUsers = async () => {
 const createUser = async (data, file) => {
 
     if (!data.nome || !data.email || !data.senha || !data.telefone || !data.RA) {
+        console.log('Preencha corretamente os dados.');
         throw new Error('Preencha corretamente os dados.');
     };
 
@@ -29,6 +30,8 @@ const createUser = async (data, file) => {
     }
 
     let imagemUrl = null;
+
+    console.log(data);
 
     if (file) {
         try {
