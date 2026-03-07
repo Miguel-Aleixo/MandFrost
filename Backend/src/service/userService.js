@@ -10,10 +10,14 @@ const getAllUsers = async () => {
 
 const createUser = async (data, file) => {
 
+    console.log(data);
+
     if (!data.nome || !data.email || !data.senha || !data.telefone || !data.RA) {
         console.log('Preencha corretamente os dados.');
         throw new Error('Preencha corretamente os dados.');
     };
+
+    console.log(data);
 
     const existingUser = await User.findOne({
         where: {
