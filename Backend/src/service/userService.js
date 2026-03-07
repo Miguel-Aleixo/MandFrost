@@ -10,11 +10,23 @@ const getAllUsers = async () => {
 
 const createUser = async (data, file) => {
 
-    console.log(data);
-
     if (!data.nome || !data.email || !data.senha || !data.telefone || !data.RA) {
         throw new Error('Preencha corretamente os dados.');
     };
+
+    const existingUser = await User.findOne({
+        where: {
+            [Op.or]: [
+                { email: data.email },
+                { RA: data.RA },
+                { telefone: data.telefone }
+            ]
+        }
+    });
+
+    if (existingUser) {
+        throw new Error('Email, RA ou telefone já cadastrados.');
+    }
 
     let imagemUrl = null;
 
