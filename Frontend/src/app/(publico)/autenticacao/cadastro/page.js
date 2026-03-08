@@ -9,9 +9,22 @@ import { IMaskInput } from 'react-imask';
 import { CiUser, CiMail, CiPhone, CiLock } from "react-icons/ci";
 import { MdOutlineBadge } from "react-icons/md";
 
+// COOKIES
+import Cookies from 'js-cookie';
+
+// COMPONENTES
+import { ToastProvider } from "@/app/components/loading/toaster";
+import { Loading } from "@/app/components/loading/loading";
+
+// TOAST
+import toast from "react-hot-toast";
+
 export default function Cadastro() {
     const URL = process.env.NEXT_PUBLIC_API_URL;
     const router = useRouter();
+
+    // FEEDBACK
+    const [loading, setLoading] = useState(false);
 
     const [Form, setForm] = useState({
         nome: '',
@@ -32,6 +45,8 @@ export default function Cadastro() {
     const cadastrar = async (e) => {
         e.preventDefault();
 
+        setLoading(true);
+
         const formData = new FormData();
 
         formData.append("nome", Form.nome);
@@ -41,13 +56,14 @@ export default function Cadastro() {
         formData.append("senha", Form.senha);
 
         try {
+
             const res = await fetch(`${URL}/users`, {
                 method: "POST",
                 body: formData
             });
 
             if (!res.ok) {
-                alert("Erro ao criar a conta");
+                toast.error("Erro ao criar a conta");
                 return;
             };
 
@@ -59,16 +75,61 @@ export default function Cadastro() {
                 senha: ''
             });
 
-            router.push('/autenticacao/login');
+            logar();
 
         } catch (err) {
-            console.log(err);
+            toast.error(err);
+        } finally {
+            setLoading(false);
         };
 
     };
 
+    const logar = async (e) => {
+
+        setLoading(true);
+
+        const credenciais = {
+            RA: Form.RA,
+            senha: Form.senha
+        }
+
+        try {
+            const res = await fetch(`${URL}/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(credenciais)
+            });
+
+            if (!res.ok) {
+                toast.error("Email ou senha incorretos");
+                return;
+            };
+
+            const data = await res.json();
+
+            Cookies.set('token', data.token, { expires: 1 });
+
+            router.push('/painel/inicio');
+
+        } catch (err) {
+            toast.error(err);
+        } finally {
+            setLoading(false)
+        };
+    };
+
     return (
         <main className="min-h-screen bg-white flex items-center justify-center md:p-4">
+
+            {/* LOADING */}
+            <Loading carregandoGeral={loading} />
+
+            {/* TOASTER */}
+            <ToastProvider />
+
             <div className="max-w-md w-full">
                 {/* CARD DE CADASTRO */}
                 <div className="bg-white md:rounded-2xl overflow-hidden md:p-0 p-8">
@@ -126,7 +187,7 @@ export default function Cadastro() {
                                 <IMaskInput
                                     type="tel"
                                     id="telefone"
-                                    mask='(99) 99999-9999'
+                                    mask='(00) 00000-0000'
                                     name="telefone"
                                     value={Form.telefone}
                                     onAccept={(value) => setForm(prev => ({ ...prev, telefone: value }))}

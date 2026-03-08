@@ -14,6 +14,7 @@ import { FaUser, FaUserCheck, FaUserTimes, FaUserShield } from "react-icons/fa";
 import { Loading } from '@/app/components/loading/loading';
 import { ToastProvider } from '@/app/components/loading/toaster';
 import toast from 'react-hot-toast';
+
 export default function Usuarios() {
     // FILTRO
     const [nome, setNome] = useState('');

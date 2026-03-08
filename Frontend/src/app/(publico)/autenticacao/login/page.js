@@ -11,9 +11,20 @@ import Cookies from 'js-cookie';
 import { CiLock } from "react-icons/ci";
 import { MdOutlineBadge } from "react-icons/md";
 
+// COMPONENTES
+import { ToastProvider } from "@/app/components/loading/toaster";
+import { Loading } from "@/app/components/loading/loading";
+
+// TOAST
+import toast from "react-hot-toast";
+
 export default function Login() {
     const URL = process.env.NEXT_PUBLIC_API_URL;
     const router = useRouter();
+
+    // FEEDBACK
+    const [loading, setLoading] = useState(false);
+
     const data = new Date;
 
     const dia = String(data.getDate()).padStart(2, "0");
@@ -43,6 +54,8 @@ export default function Login() {
     const logar = async (e) => {
         e.preventDefault();
 
+        setLoading(true);
+
         try {
             const res = await fetch(`${URL}/login`, {
                 method: "POST",
@@ -53,7 +66,7 @@ export default function Login() {
             });
 
             if (!res.ok) {
-                alert("Email ou senha incorretos");
+                toast.error("Email ou senha incorretos");
                 return;
             };
 
@@ -64,12 +77,21 @@ export default function Login() {
             router.push('/painel/inicio');
 
         } catch (err) {
-            console.log(err);
+            toast.error(err);
+        } finally {
+            setLoading(false)
         };
     };
 
     return (
         <main className="min-h-screen bg-white flex items-center justify-center">
+
+            {/* LOADING */}
+            <Loading carregandoGeral={loading} />
+
+            {/* TOASTER */}
+            <ToastProvider />
+
             <div className="max-w-md w-full">
                 {/* CARD DE LOGIN */}
                 <div className="bg-white md:rounded-2xl overflow-hidden md:p-0 p-8">

@@ -75,3 +75,74 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
+}
+
+.success-circle{
+width:120px;
+height:120px;
+border-radius:50%;
+background:linear-gradient(135deg,#22c55e,#16a34a);
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 40px rgba(34,197,94,.5);
+animation: pop .5s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(.5);opacity:0}
+80%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+.success-check{
+width:70px;
+height:70px;
+stroke:white;
+stroke-width:4;
+stroke-linecap:round;
+stroke-linejoin:round;
+}
+
+.circle{
+stroke-dasharray:150;
+stroke-dashoffset:150;
+animation: drawCircle .6s ease forwards;
+}
+
+.check{
+stroke-dasharray:50;
+stroke-dashoffset:50;
+animation: drawCheck .5s .6s ease forwards;
+}
+
+@keyframes drawCircle{
+to{
+stroke-dashoffset:0;
+}
+}
+
+@keyframes drawCheck{
+to{
+stroke-dashoffset:0;
+}
+}
+
+.animate-text{
+animation: textUp .7s ease;
+}
+
+@keyframes textUp{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
