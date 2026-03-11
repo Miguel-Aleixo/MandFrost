@@ -87,14 +87,14 @@ Painel utilizado para organizar o fluxo de pedidos e manter o atendimento eficie
 
 - Next.js  
 - React  
-- TypeScript  
+- JavaScript  
 - Tailwind CSS  
 
 ## Backend
 
 - Node.js  
 - Express.js  
-- TypeScript  
+- JavaScript  
 
 ## Outros
 
