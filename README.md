@@ -1,131 +1,126 @@
-🍦 MandFrost
-Sistema de atendimento para sorveterias, desenvolvido com Next.js, TypeScript (ES6+) e Express.js.
+# MandFrost Web System
 
-📦 O que é
-O MandFrost é uma aplicação web criada para facilitar o atendimento em sorveterias. Ele permite registrar pedidos de forma rápida, selecionar sabores, tamanhos e adicionais, e acompanhar o andamento do pedido em tempo real.
-Possui um painel intuitivo que ajuda o atendente a organizar o fluxo de atendimento e manter o serviço ágil, claro e eficiente tanto no balcão quanto na produção.
+Sistema de atendimento para sorveterias, desenvolvido para facilitar o registro de pedidos, organização do atendimento e gerenciamento do fluxo de produção.
 
-🚀 Tecnologias utilizadas
-Next.js: Framework React para construção de interfaces com renderização no servidor (SSR) e geração de sites estáticos (SSG).
+A plataforma permite que atendentes registrem pedidos rapidamente, selecionem sabores, tamanhos e adicionais, e acompanhem o andamento dos pedidos em tempo real.
 
-TypeScript (ES6+): Linguagem de programação tipada para maior segurança e manutenção do código.
+O sistema também conta com uma dashboard administrativa para controle de pedidos, gerenciamento de produtos e organização do atendimento.
 
-Express.js: Framework Node.js para construção do backend e gerenciamento das rotas e APIs.
+# Funcionalidades
 
-🧰 Funcionalidades principais
+## Área de Atendimento
 
-Gerenciamento de pedidos: Criação, acompanhamento e finalização de pedidos em tempo real.
+### Registro de Pedidos
 
-Cadastro de sabores e adicionais: Inclusão e edição de opções de sorvete, tamanhos e complementos.
+O sistema permite registrar pedidos de forma rápida e organizada.
 
-Painel administrativo: Controle de pedidos, estoque e informações de clientes.
+Funcionalidades:
 
-Design responsivo: Layout adaptável a dispositivos móveis e desktops, garantindo boa experiência para todos os usuários.
+- Seleção de sabores de sorvete  
+- Escolha de tamanhos  
+- Adição de complementos e adicionais  
+- Registro rápido de pedidos no balcão  
 
-⚙️ Como executar
+### Acompanhamento de Pedidos
 
-Pré-requisitos
+Os pedidos podem ser acompanhados em tempo real.
 
-Node.js (v14 ou superior)
+Permite:
 
-npm ou Yarn como gerenciador de pacotes
+- Visualizar pedidos em andamento  
+- Organizar pedidos na fila de produção  
+- Atualizar status dos pedidos  
 
-Passos
-Clone o repositório:
+### Interface Simples
 
-git clone https://github.com/seuusuario/MandFrost.git
-cd MandFrost
+A interface foi desenvolvida para facilitar o atendimento rápido.
 
+Características:
 
-Instale as dependências do frontend:
+- Interface intuitiva  
+- Organização clara das opções  
+- Fluxo rápido de criação de pedidos  
 
-cd frontend
-npm install
+# Dashboard Administrativa
 
+Credenciais de acesso do ADMIN:
 
-ou
+Usuário: 277202020  
+Senha: 1234
 
-yarn install
+## Gestão de Pedidos
 
+Controle completo dos pedidos registrados no sistema.
 
-Instale as dependências do backend:
+Funcionalidades:
 
-cd ../backend
-npm install
+- Visualizar pedidos  
+- Atualizar status  
+- Finalizar pedidos  
+- Organizar fila de atendimento  
 
+## Gestão de Produtos
 
-ou
+Permite controlar as opções disponíveis no sistema.
 
-yarn install
+- Cadastro de sabores  
+- Cadastro de tamanhos  
+- Cadastro de adicionais  
+- Edição de produtos  
 
+## Controle do Atendimento
 
-Execute o backend:
+Painel utilizado para organizar o fluxo de pedidos e manter o atendimento eficiente.
 
-npm run dev
+# Fluxo de Funcionamento
 
+1. O atendente registra um novo pedido  
+2. Seleciona sabores, tamanhos e adicionais  
+3. O pedido é adicionado ao sistema  
+4. A produção acompanha os pedidos em andamento  
+5. O status do pedido é atualizado conforme o preparo  
+6. O pedido é finalizado e entregue ao cliente  
 
-ou
+# Tecnologias Utilizadas
 
-yarn dev
+## Frontend
 
+- Next.js  
+- React  
+- TypeScript  
+- Tailwind CSS  
 
-Execute o frontend:
+## Backend
 
-cd ../frontend
-npm run dev
+- Node.js  
+- Express.js  
+- TypeScript  
 
+## Outros
 
-ou
+- Sistema de autenticação  
+- Dashboard administrativa  
+- Gerenciamento de estado  
 
-yarn dev
+# Responsividade
 
-🗂️ Estrutura do projeto
+O sistema foi desenvolvido para funcionar em:
 
-/
-├── backend/          # Código do servidor Express.js
-│   ├── routes/       # Rotas da API
-│   ├── controllers/  # Lógica das rotas
-│   ├── models/       # Modelos de dados
-│   └── server.js     # Inicialização do backend
-├── frontend/         # Código do frontend Next.js
-│   ├── components/   # Componentes reutilizáveis
-│   ├── app/          # Páginas e rotas do Next.js
-│   ├── hooks/        # Hooks personalizados
-│   ├── services/     # Conexão com backend e funções de requisição
-│   ├── styles/       # Estilos globais e Tailwind
-│   └── utils/        # Funções auxiliares
-├── .env.local        # Variáveis de ambiente (não comitar)
-├── package.json      # Dependências e scripts do projeto
+- Celulares  
+- Computadores  
+- Tablets  
 
-⚙️ Variáveis de ambiente
+# Melhorias Futuras
 
-Crie um arquivo .env.local na raiz do projeto com as seguintes variáveis:
+- Integração com sistemas de pagamento  
+- Controle de estoque automático  
+- Relatórios de vendas  
+- Histórico de pedidos por cliente  
 
-# FRONTEND
+# Objetivo do Projeto
 
-NEXT_PUBLIC_API_URL=http://localhost:8080/api
+Criar uma solução digital para sorveterias que facilite o registro de pedidos, organize o atendimento e melhore a eficiência do fluxo de trabalho no balcão e na produção.
 
-# BACKEND / BANCO DE DADOS
+# Autor
 
-PORT=5000
-
-DB_NAME=<nome_do_seu_banco>
-
-DB_USER=<usuario_do_banco>
-
-DB_PASSWORD=<senha_do_banco>
-
-DB_HOST=<host_do_banco>
-
-JWT_SECRET=<sua_chave_secreta_jwt>
-
-# CLOUDINARY
-
-CLOUDINARY_CLOUD_NAME=<nome_da_nuvem>
-
-CLOUDINARY_API_KEY=<sua_api_key>
-
-CLOUDINARY_API_SECRET=<sua_api_secret>
-
-📄 Licença
-Este projeto está licenciado sob a MIT License.
+Desenvolvido por Miguel Aleixo
